@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -72,36 +73,39 @@
         <div class="col-md-1"></div>
         </div>
 
-  
-    <div class="anduin">
         <div class="col-md-12">
-            <div class="col-md-2"></div>
-            <div class="col-md-3 textcenter">
-                <h1><strong>Anduin</strong></h1>
-                <p><strong><i>Anduin Wrynn is the standard hero for priests.
-            Players who have unlocked the Tyrande Whisperwind alternate hero may choose to play as her instead when using any priest deck. Both heroes use the same gameplay mechanics; the difference is purely cosmetic.
-            </i></strong></p>
-            </div>
-            <div class="col-md-2">
-                <p class="textcenter">
-                    <a href="#">
-                        <img src="http://hearthstonewiki.ru/wp-content/uploads/2013/11/Anduin-209x300.png"></img>
-                    </a>
-                    <img src="https://hydra-media.cursecdn.com/hearthstone.gamepedia.com/thumb/6/60/Lesser_Heal%28126%29.png/200px-Lesser_Heal%28126%29.png?version=dd08c189ff7c01f20091c6fdbf4b5ca1"></img>
-                </p>
-            </div>
-            <div class="col-md-3 textcenter">
-                <h1></h1>
-                <p><strong><i>The default priest Hero Power is Lesser Heal, a powerful healing option which can be used on heroes or minions to restore Health. 
-            </i></strong></p>
-            </div>
-            <div class="col-md-2"></div>
+        	
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Card1", "Card12", "Card13"];
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}        
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your cards list.";
+        }
+    }
+    $scope.removeItem = function (x) {
+        $scope.errortext = "";    
+        $scope.products.splice(x, 1);
+    }
+});
+</script>
+
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="x in products">{{x}}<span ng-click="removeItem($index)">×</span></li>
+  </ul>
+  <input ng-model="addMe">
+  <button ng-click="addItem()">Add</button>
+  <p>{{errortext}}</p>
+</div>
+
         </div>
-    </div>
-
-    <p style = "text-align: center;"><a href="registration.html"><button class = "btn btn-info">Registration</button></a></p>
-     <p style = "text-align: center;"><a href="generation.html"><button class = "btn btn-info">Registration</button></a></p>
-
+   
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
